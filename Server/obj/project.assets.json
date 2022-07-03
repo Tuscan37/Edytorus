@@ -1189,11 +1189,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Server\\MCSkinEditor.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Server\\MCSkinEditor.Server.csproj",
       "projectName": "MCSkinEditor.Server",
-      "projectPath": "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Server\\MCSkinEditor.Server.csproj",
+      "projectPath": "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Server\\MCSkinEditor.Server.csproj",
       "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Visual Studio\\Shared\\NuGetPackages"
@@ -1214,11 +1214,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Client\\MCSkinEditor.Client.csproj": {
-              "projectPath": "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Client\\MCSkinEditor.Client.csproj"
+            "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Client\\MCSkinEditor.Client.csproj": {
+              "projectPath": "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Client\\MCSkinEditor.Client.csproj"
             },
-            "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Shared\\MCSkinEditor.Shared.csproj": {
-              "projectPath": "C:\\Users\\Jakub\\source\\repos\\MCSkinEditor\\Shared\\MCSkinEditor.Shared.csproj"
+            "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Shared\\MCSkinEditor.Shared.csproj": {
+              "projectPath": "C:\\Users\\Jakub\\Dokumenty\\utp\\TM\\semestr 6\\Edytorus\\Shared\\MCSkinEditor.Shared.csproj"
             }
           }
         }
