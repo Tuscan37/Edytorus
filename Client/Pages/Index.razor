@@ -1,0 +1,54 @@
+﻿@page "/"
+@using Blazor.Extensions
+@inject HttpClient Http
+<PageTitle>Minecraft Skin Editor</PageTitle>
+<p>Wpisz nazwę użytkownika, a potem kliknij przycisk aby otrzymać UUID</p>
+<input placeholder="Nazwa użytkownika" @bind-value="@username" /> <br />
+<button @onclick="onClick1">Click me1!</button><br />
+
+<p>@pval</p>
+
+<h1>Witaj!</h1>
+
+    <BECanvas @ref="_canvasReference" Height="400" Width="400">
+
+    </BECanvas>
+
+
+@code{
+    private Canvas2DContext _context;
+    private string username { get; set; }
+    private string pval = "heja!";
+    private async Task onClick1()
+    {
+        if (username == null || username == "") return;
+        var task = Http.GetStringAsync("uuid?username="+ username);
+        var resp = await task;
+        pval = "UUID = " + resp;
+        StateHasChanged();
+        //using var client = new HttpClient();
+        //client.BaseAddress = new Uri("uuid");
+        //pval = client.BaseAddress.AbsolutePath;
+        //var task = client.GetStringAsync("Kubelson");
+        //var resp = await task;
+        //pval = resp;
+    }
+    private void onClick2()
+    {
+        pval = "lmao";
+    }
+
+    protected BECanvasComponent _canvasReference;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        onClick1();
+        this._context = await this._canvasReference.CreateCanvas2DAsync();
+        await this._context.SetFillStyleAsync("green");
+    
+        await this._context.FillRectAsync(10, 100, 100, 100);
+    
+        await this._context.SetFontAsync("48px serif");
+        await this._context.StrokeTextAsync("Hello Blazor!!!", 10, 100);
+    }
+}
