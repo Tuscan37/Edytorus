@@ -21,6 +21,17 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/Blazor.Extensions.Canvas/blazor.extensions.canvas.js"></script>
+    <script src="_content/BlazorPanzoom/panzoom.min.js"></script>
+    <script src="_content/BlazorPanzoom/blazorpanzoom.js"></script>
+    <script>
+        function getDivCanvasOffsets(el) {
+            var obj = {};
+            obj.offsetLeft = el.offsetLeft - window.scrollX;
+            obj.offsetTop = el.offsetTop - window.scrollY;
+            console.log(window.scrollY);
+            return JSON.stringify(obj);
+        }
+    </script>
 </body>
 
 </html>

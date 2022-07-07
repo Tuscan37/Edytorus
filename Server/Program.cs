@@ -1,3 +1,5 @@
+using MCSkinEditor.Server;
+using MCSkinEditor.Shared;
 using Microsoft.AspNetCore.ResponseCompression;
 using Newtonsoft.Json;
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<HttpClient>();
-
+builder.Services.AddScoped<IConsoleWriterService,ConsoleWriterService>();
 
 var app = builder.Build();
 

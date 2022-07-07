@@ -22,6 +22,24 @@
           "buildMultiTargeting/Blazor.Extensions.Canvas.props": {}
         }
       },
+      "BlazorPanzoom/0.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.7"
+        },
+        "compile": {
+          "lib/net5.0/BlazorPanzoom.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/BlazorPanzoom.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorPanzoom.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorPanzoom.props": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/6.0.3": {
         "type": "package",
         "dependencies": {
@@ -434,6 +452,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Blazor.Extensions.Canvas": "1.1.1",
+          "BlazorPanzoom": "0.2.1",
           "MCSkinEditor.Shared": "1.0.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.3",
           "Newtonsoft.Json": "13.0.1"
@@ -475,6 +494,25 @@
         "lib/netstandard2.1/Blazor.Extensions.Canvas.dll",
         "lib/netstandard2.1/Blazor.Extensions.Canvas.pdb",
         "staticwebassets/blazor.extensions.canvas.js"
+      ]
+    },
+    "BlazorPanzoom/0.2.1": {
+      "sha512": "CH7NP2JrCbOoSnmXhf+Ao2kqVQlO5criSLj1LW782kRWO3xs/b3/jmqqvTCUbZGV+wfHqxvYBtcVXils2P8LPQ==",
+      "type": "package",
+      "path": "blazorpanzoom/0.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazorpanzoom.0.2.1.nupkg.sha512",
+        "blazorpanzoom.nuspec",
+        "build/BlazorPanzoom.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorPanzoom.props",
+        "buildTransitive/BlazorPanzoom.props",
+        "lib/net5.0/BlazorPanzoom.dll",
+        "staticwebassets/blazorpanzoom.js",
+        "staticwebassets/panzoom-LICENSE.txt",
+        "staticwebassets/panzoom.min.js"
       ]
     },
     "Microsoft.AspNetCore.Authorization/6.0.3": {

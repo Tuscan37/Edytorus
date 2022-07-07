@@ -1,24 +1,74 @@
 ﻿@page "/"
 @using Blazor.Extensions
+@using Blazor.Extensions.Canvas
+@using Blazor.Extensions.Canvas.Canvas2D
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq 
+@using System.Timers
+@inject IJSRuntime jsRuntime
 @inject HttpClient Http
+
+
 <PageTitle>Minecraft Skin Editor</PageTitle>
 <p>Wpisz nazwę użytkownika, a potem kliknij przycisk aby otrzymać UUID</p>
 <input placeholder="Nazwa użytkownika" @bind-value="@username" /> <br />
 <button @onclick="onClick1">Click me1!</button><br />
-
+<InputFile @ref="inputButton" OnChange="OnInputFileChange" />
 <p>@pval</p>
 
 <h1>Witaj!</h1>
+<img id="img_skin" @onload="Load_img_skin" @ref="img_skin" src="Resources/Steve640x640.png" hidden/>
+<div @ref="divCanvas" @onmousedown="EnableDraw" @onmouseup="DisableDraw" @onmousemove="Draw" >
+    <BECanvas @ref="myCanvas"  Height="@skinSize" Width="@skinSize" ></BECanvas>
+</div>
 
-    <BECanvas @ref="_canvasReference" Height="400" Width="400">
-
-    </BECanvas>
 
 
 @code{
-    private Canvas2DContext _context;
-    private string username { get; set; }
+    private static int skinSize = 640;
+    private static int defaultSkinSize = 64;
+    private static double scale = skinSize / defaultSkinSize;
+
+    private InputFile? inputButton;
+    private string ?username { get; set; }
     private string pval = "heja!";
+    private bool drawEnabled = false;
+    private void OnInputFileChange()
+    {
+        Console.WriteLine("Input file :)");
+    }
+
+    private void EnableDraw()
+    {
+        drawEnabled = true;
+    }
+    private void DisableDraw()
+    {
+        drawEnabled = false;
+    }
+
+    private async Task Load_img_skin(ProgressEventArgs args)
+    {
+        currentCanvasContext = await myCanvas.CreateCanvas2DAsync();
+        await currentCanvasContext.DrawImageAsync(img_skin,0,0,skinSize,skinSize);
+    }
+
+    private async Task Draw(MouseEventArgs args)
+    {
+        if (!drawEnabled) return;
+        double mouseX = 0;
+        double mouseY = 0;
+        
+        string data = await jsRuntime.InvokeAsync<string>("getDivCanvasOffsets", new object[] { divCanvas });
+        JObject? offsets = (JObject?)JsonConvert.DeserializeObject(data);
+        if (offsets == null) return;
+        mouseX = args.ClientX - offsets.Value<double>("offsetLeft");
+        mouseY = args.ClientY - offsets.Value<double>("offsetTop");
+        currentCanvasContext = await myCanvas.CreateCanvas2DAsync();
+        await currentCanvasContext.SetFillStyleAsync("Red");
+        await currentCanvasContext.FillRectAsync(mouseX - (mouseX % scale), mouseY - (mouseY % scale), 1*scale, 1*scale);
+        
+    }
     private async Task onClick1()
     {
         if (username == null || username == "") return;
@@ -26,29 +76,27 @@
         var resp = await task;
         pval = "UUID = " + resp;
         StateHasChanged();
-        //using var client = new HttpClient();
-        //client.BaseAddress = new Uri("uuid");
-        //pval = client.BaseAddress.AbsolutePath;
-        //var task = client.GetStringAsync("Kubelson");
-        //var resp = await task;
-        //pval = resp;
     }
-    private void onClick2()
+    ElementReference img_skin;
+    ElementReference divCanvas;
+    Blazor.Extensions.BECanvasComponent myCanvas;
+    Canvas2DContext currentCanvasContext;
+
+    protected override Task OnInitializedAsync()
     {
-        pval = "lmao";
+        Startup();
+        return base.OnInitializedAsync();
     }
 
-    protected BECanvasComponent _canvasReference;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    async void Startup()
     {
-        onClick1();
-        this._context = await this._canvasReference.CreateCanvas2DAsync();
-        await this._context.SetFillStyleAsync("green");
-    
-        await this._context.FillRectAsync(10, 100, 100, 100);
-    
-        await this._context.SetFontAsync("48px serif");
-        await this._context.StrokeTextAsync("Hello Blazor!!!", 10, 100);
+        await Task.Delay(1);
+        Console.Write("StartLoad");
+        currentCanvasContext = await myCanvas.CreateCanvas2DAsync();
+        
+        //await currentCanvasContext.SetFillStyleAsync("Black");
+        //await currentCanvasContext.SetFontAsync("20px serif");
+        //await currentCanvasContext.FillTextAsync("Tutaj możesz rysować", 25, 160);
+        Console.Write("EndLoad");
     }
 }

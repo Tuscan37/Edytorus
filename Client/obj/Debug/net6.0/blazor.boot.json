@@ -9,6 +9,7 @@
     "assembly": {
       "Blazor.Extensions.Canvas.JS.dll": "sha256-TrW1uaSNUS+J8xVJErxIf1NQuNC7kn50KzMYYF\/4JtM=",
       "Blazor.Extensions.Canvas.dll": "sha256-W20pWMXQg2yTv0w4VJhrjCJKNRYe3PiUU9S76XipNe8=",
+      "BlazorPanzoom.dll": "sha256-uRt+r+z6OCfcsWVS2KijIIGRygv4Cp7SX2YTOcwCKKE=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-Ha5fdCPDxEzQSfpAqMldZhxAZGSoQpwYh8Onk\/zR2Bc=",
       "Microsoft.AspNetCore.Components.dll": "sha256-4niu36Ua\/a0Tb++kk0BPETzMKL79X97WKKAHwXyA54M=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-1PZMkDLrAl6RLFr\/EMxNeUbUlRv3yJgimVzqANb9PMU=",
@@ -199,15 +200,15 @@
       "mscorlib.dll": "sha256-tSv6NEbBsHuM5P3AUJGybafS0hxrXlzDmmcyG2eGk3I=",
       "netstandard.dll": "sha256-klcvWVyHimPfDxg6W1A076EKpCB5ySxjtc7sxJEsGgE=",
       "System.Private.CoreLib.dll": "sha256-Y8kdbfPQ0YoYLGbOgzRmoVsnuMYNlA1hvLvDWFTtzrk=",
-      "MCSkinEditor.Shared.dll": "sha256-CCbz9pBpRsoJ1HiJb7mhHJq5iJTiCGd\/HjaQ067vSio=",
-      "MCSkinEditor.Client.dll": "sha256-65zfIw2hogP8caqAoxlfuT2IfvIhZLYNMkGapltYXAI="
+      "MCSkinEditor.Shared.dll": "sha256-PELI0iIgWw9QtA8HbtmvZIA4bhTqvaGutiCCDbTlVTk=",
+      "MCSkinEditor.Client.dll": "sha256-7w8utHxrl82nRUJgl8Pp2qY74YUsQYWr65woEXx+n6o="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MCSkinEditor.Shared.pdb": "sha256-4gQYvX7LC9vkX\/PLTYKfvvtFTED5YVqHUbu9cxkTvWw=",
-      "MCSkinEditor.Client.pdb": "sha256-P5O9LPK\/b3tNTOrt\/64aodmZmNCcPU\/zSRlMsVu2IoE="
+      "MCSkinEditor.Shared.pdb": "sha256-Okv9\/Zm9+XKifGcXe1Ey4rOlISwWl6YFsk6MOekVSh0=",
+      "MCSkinEditor.Client.pdb": "sha256-9YGHqf896D6g\/Q6f9MCsScGXFdwwRhB9tvhNwQmHnrE="
     },
     "runtime": {
       "dotnet.6.0.3.m1a575f5lv.js": "sha256-pRmcHKZN4T\/YbX9dj6ITT4sNtkJ9w07OLcwl4645nPg=",
