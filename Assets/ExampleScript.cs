@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
+using UnityEngine.Networking;
 
 public class ExampleScript : MonoBehaviour
 {
@@ -16,13 +13,6 @@ public class ExampleScript : MonoBehaviour
     [SerializeField]
     private GameObject panel;
 
-    private async Task<byte[]> GetSkinBytesFromUsername(string username)
-    {
-        var uid = await MojangAPI.GetUidFromUsername(username);
-        var skinUrl = await MojangAPI.GetSkinUrlFromUid(uid);
-        var bytes = await MojangAPI.GetSkinBytesFromSkinUrl(skinUrl);
-        return bytes;
-    }
     private Texture2D ConvertSkinToTexture(byte[] bytes)
     {
         Texture2D tx = new Texture2D(1, 1);
@@ -36,15 +26,21 @@ public class ExampleScript : MonoBehaviour
         var mat = plane.GetComponent<MeshRenderer>().material;
         mat.mainTexture = tx;
     }
+
     private async void Run()
     {
-        var bytes = await GetSkinBytesFromUsername("Kubelson");
+        //var bytes = await GetSkinBytesFromUsername("Kubelson");
+        //var base64 = await MojangAPI.GetSkin64FromSkinUrl("http://textures.minecraft.net/texture/c4b177f5b37d6e275dcf1d596b8795771e7424662a8b90c3096b8d238f90e155");
+        //var bytes = (await UnityWebRequest.Get("http://textures.minecraft.net/texture/c4b177f5b37d6e275dcf1d596b8795771e7424662a8b90c3096b8d238f90e155").SendWebRequest()).downloadHandler.data;
+        var base64 = (await UnityWebRequest.Get("https://localhost:6900/getSkin/Kubelson").SendWebRequest()).downloadHandler.text;
+        var bytes = Convert.FromBase64String(base64);
         var tx = ConvertSkinToTexture(bytes); 
         ApplyTexture(tx);
     }
     void Start()
     {
         //Run();
+
     }
 
     public async void ButtonAction()
@@ -55,14 +51,16 @@ public class ExampleScript : MonoBehaviour
             return;
         }
         panel.SetActive(true);
+
+
         byte[] bytes = null;
         try
         {
-            bytes = await GetSkinBytesFromUsername(text.text);
+            bytes = await Server.GetSkin(text.text);
         }
         catch(Exception e)
         {
-            Debug.Log("Nie znaleziono u¿ytkownika");
+            Debug.Log(e.Message);
             panel.SetActive(false);
             return ;
         }
