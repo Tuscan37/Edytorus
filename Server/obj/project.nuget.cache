@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qwV3tpaqQl8P2zJuP2XKlTsdeilSgCroE8jhVAGujZcj7A3EeteQzUXQCsY3R8oqR9J1vqu6v+tRXXLB1q5B1g==",
+  "dgSpecHash": "XL5VCq8IZt1WRLacw9kHM+b9vn4F7q1dmfOckZZaSDm3tBZRMeBi1Lk/VQEwaJaAIyyvFJvRjIpeOrWR7rh2+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Edytorus\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",

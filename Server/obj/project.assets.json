@@ -768,11 +768,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jakub\\Dokumenty\\Github\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Jakub\\Dokumenty\\Github\\Edytorus\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Edytorus\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Jakub\\Dokumenty\\Github\\Edytorus\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Visual Studio\\Shared\\NuGetPackages"
