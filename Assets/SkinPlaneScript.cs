@@ -19,5 +19,6 @@ public class SkinPlaneScript : MonoBehaviour
     {
         var mat = meshRenderer.material;
         mat.mainTexture = tx;
+        tx.filterMode = FilterMode.Point;
     }
 }
