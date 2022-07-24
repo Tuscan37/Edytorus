@@ -13,6 +13,7 @@ public class SkinPlaneScript : MonoBehaviour
     {
         SkinPlaneScript.instance = this;
         meshRenderer = GetComponent<MeshRenderer>();
+        ApplyTexture(DefaultSkins.GetInstance().Steve);
     }
 
     public void ApplyTexture(Texture2D tx)
