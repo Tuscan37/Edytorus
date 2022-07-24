@@ -5,9 +5,7 @@ public class ExampleScript : MonoBehaviour
     private Camera cam;
     public void Start()
     {
-
-        cam = Camera.main;  
-
+        cam = Camera.main;
     }
     public void Update()
     {
@@ -30,3 +28,4 @@ public class ExampleScript : MonoBehaviour
         tex.SetPixel((int)pixelUV.x, (int)pixelUV.y, Color.red);
         tex.Apply();
     }
+}
