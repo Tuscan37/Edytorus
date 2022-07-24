@@ -1,24 +1,17 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
-using Cysharp.Threading.Tasks;
-using UnityEngine.Networking;
-using SFB;
-using System.Collections;
-using UnityEngine.EventSystems;
-using System.Runtime.InteropServices;
 
 public class ExampleScript : MonoBehaviour
 {
     private Camera cam;
     public void Start()
     {
+
         cam = Camera.main;  
+
     }
     public void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
-        
         RaycastHit hit;
         if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
             return;
@@ -37,4 +30,3 @@ public class ExampleScript : MonoBehaviour
         tex.SetPixel((int)pixelUV.x, (int)pixelUV.y, Color.red);
         tex.Apply();
     }
-}
