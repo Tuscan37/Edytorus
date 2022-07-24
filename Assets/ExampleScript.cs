@@ -5,12 +5,13 @@ public class ExampleScript : MonoBehaviour
     private Camera cam;
     public void Start()
     {
-        cam = Camera.main;
+
+        cam = Camera.main;  
+
     }
     public void Update()
     {
         if (!Input.GetMouseButtonDown(0)) return;
-
         RaycastHit hit;
         if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
             return;
@@ -29,4 +30,3 @@ public class ExampleScript : MonoBehaviour
         tex.SetPixel((int)pixelUV.x, (int)pixelUV.y, Color.red);
         tex.Apply();
     }
-}
